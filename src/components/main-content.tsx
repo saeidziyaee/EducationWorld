@@ -60,7 +60,7 @@ const MainContent = ({ tabs, activeTabId, onCloseTab, onTabClick }: MainContentP
                     src={`https://placehold.co/800x400.png`}
                     alt={tab.title}
                     width={800}
-                    height={400}
+                    height={40}
                     className="rounded-lg mb-6"
                     data-ai-hint="article image"
                 />
