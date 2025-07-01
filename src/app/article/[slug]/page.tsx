@@ -54,7 +54,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               width={800}
               height={400}
               className="rounded-lg mb-6"
-              data-ai-hint="article image"
+              data-ai-hint={article.imageHint}
           />
         <div className="prose prose-lg max-w-none dark:prose-invert break-words" dangerouslySetInnerHTML={{ __html: article.content }}></div>
       </CardContent>
