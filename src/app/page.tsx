@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo } from 'react';
-import type { Topic, Article } from '@/lib/data';
-import { topics as allTopics, articles as allArticles } from '@/lib/data';
+import { useState } from 'react';
+import type { Article, Topic } from '@/lib/data';
+import { articles as allArticles } from '@/lib/data';
 import TopicSidebar from '@/components/topic-sidebar';
 import MainContent from '@/components/main-content';
 
@@ -12,31 +12,26 @@ export default function Home() {
   const [openTabs, setOpenTabs] = useState<Tab[]>([]);
   const [activeTabId, setActiveTabId] = useState<string | null>(null);
 
-  const articlesByTopic = useMemo(() => {
-    const map = new Map<string, Article[]>();
-    allArticles.forEach((article) => {
-      if (!map.has(article.topic)) {
-        map.set(article.topic, []);
-      }
-      map.get(article.topic)!.push(article);
-    });
-    return map;
-  }, []);
+  const sidebarItems: Topic[] = allArticles.map((article) => ({
+    id: article.id,
+    name: article.title,
+  }));
 
-  const handleTopicClick = (topic: Topic) => {
-    const articlesForTopic = articlesByTopic.get(topic.id) || [];
-    if (articlesForTopic.length > 0) {
-      // For simplicity, let's open the first article of the topic
-      const articleToOpen = articlesForTopic[0];
+  const handleSidebarItemClick = (item: Topic) => {
+    const articleToOpen = allArticles.find(
+      (article) => article.id === item.id
+    );
 
-      // Check if tab is already open
-      const isAlreadyOpen = openTabs.some(tab => tab.id === articleToOpen.id);
-      
-      if (!isAlreadyOpen) {
-        setOpenTabs(prevTabs => [...prevTabs, articleToOpen]);
-      }
-      setActiveTabId(articleToOpen.id);
+    if (!articleToOpen) {
+      return;
     }
+
+    const isAlreadyOpen = openTabs.some((tab) => tab.id === articleToOpen.id);
+
+    if (!isAlreadyOpen) {
+      setOpenTabs((prevTabs) => [...prevTabs, articleToOpen]);
+    }
+    setActiveTabId(articleToOpen.id);
   };
 
   const handleCloseTab = (tabIdToClose: string) => {
@@ -68,7 +63,7 @@ export default function Home() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
       <aside className="lg:col-span-1">
-        <TopicSidebar topics={allTopics} onTopicClick={handleTopicClick} />
+        <TopicSidebar topics={sidebarItems} onTopicClick={handleSidebarItemClick} />
       </aside>
       <section className="lg:col-span-3">
         <MainContent 

@@ -13,7 +13,7 @@ const TopicSidebar = ({ topics, onTopicClick }: TopicSidebarProps) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>موضوعات</CardTitle>
+        <CardTitle>مقالات</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
