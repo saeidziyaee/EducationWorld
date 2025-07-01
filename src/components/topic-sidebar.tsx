@@ -1,15 +1,20 @@
 'use client';
 
-import type { Topic } from '@/lib/data';
+import type { Article } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface TopicSidebarProps {
-  topics: Topic[];
-  onTopicClick: (topic: Topic) => void;
+  articles: Article[];
 }
 
-const TopicSidebar = ({ topics, onTopicClick }: TopicSidebarProps) => {
+const TopicSidebar = ({ articles }: TopicSidebarProps) => {
+  const params = useParams();
+  const activeSlug = typeof params.slug === 'string' ? params.slug : null;
+
   return (
     <Card>
       <CardHeader>
@@ -17,14 +22,19 @@ const TopicSidebar = ({ topics, onTopicClick }: TopicSidebarProps) => {
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
-          {topics.map((topic) => (
+          {articles.map((article) => (
             <Button
-              key={topic.id}
+              key={article.id}
               variant="ghost"
-              className="h-auto justify-start whitespace-normal text-base text-right"
-              onClick={() => onTopicClick(topic)}
+              className={cn(
+                'h-auto justify-start whitespace-normal text-base text-right',
+                activeSlug === article.slug && 'bg-accent text-accent-foreground'
+              )}
+              asChild
             >
-              {topic.name}
+              <Link href={`/article/${article.slug}`}>
+                {article.title}
+              </Link>
             </Button>
           ))}
         </div>

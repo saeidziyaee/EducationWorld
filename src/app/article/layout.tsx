@@ -1,16 +1,18 @@
 import TopicSidebar from '@/components/topic-sidebar';
 import { articles as allArticles } from '@/lib/data';
 
-export default function Home() {
+export default function ArticleLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
       <aside className="lg:col-span-1">
         <TopicSidebar articles={allArticles} />
       </aside>
       <section className="lg:col-span-3">
-        <div className="flex items-center justify-center h-full min-h-[400px] border-2 border-dashed rounded-lg">
-          <p className="text-muted-foreground">برای مشاهده مقاله، یک موضوع را از نوار کناری انتخاب کنید.</p>
-        </div>
+        {children}
       </section>
     </div>
   );

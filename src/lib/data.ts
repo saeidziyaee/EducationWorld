@@ -5,6 +5,7 @@ export interface Topic {
 
 export interface Article {
   id: string;
+  slug: string;
   title: string;
   topic: string; // topic id
   content: string;
@@ -20,6 +21,7 @@ export const topics: Topic[] = [
 export const articles: Article[] = [
   {
     id: 'sci-1',
+    slug: 'deep-space-discovery',
     topic: 'science',
     title: 'کشف جدید در اعماق فضا',
     content: `
@@ -29,6 +31,7 @@ export const articles: Article[] = [
   },
   {
     id: 'tech-1',
+    slug: 'ai-revolution-in-programming',
     topic: 'tech',
     title: 'انقلاب هوش مصنوعی در برنامه‌نویسی',
     content: `
@@ -38,6 +41,7 @@ export const articles: Article[] = [
   },
     {
     id: 'tech-2',
+    slug: 'future-of-iot',
     topic: 'tech',
     title: 'آینده اینترنت اشیاء (IoT)',
     content: `
@@ -47,6 +51,7 @@ export const articles: Article[] = [
   },
   {
     id: 'health-1',
+    slug: 'sleep-and-mental-health',
     topic: 'health',
     title: 'اهمیت خواب کافی برای سلامت روان',
     content: `
@@ -56,6 +61,7 @@ export const articles: Article[] = [
   },
   {
     id: 'business-1',
+    slug: 'digital-marketing-trends',
     topic: 'business',
     title: 'روندهای جدید در بازاریابی دیجیتال',
     content: `
