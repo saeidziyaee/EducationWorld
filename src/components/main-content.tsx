@@ -64,7 +64,7 @@ const MainContent = ({ tabs, activeTabId, onCloseTab, onTabClick }: MainContentP
                     className="rounded-lg mb-6"
                     data-ai-hint="article image"
                 />
-              <div className="prose prose-lg max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: tab.content }}></div>
+              <div className="prose prose-lg max-w-none dark:prose-invert break-words" dangerouslySetInnerHTML={{ __html: tab.content }}></div>
             </CardContent>
           </Card>
         </TabsContent>
