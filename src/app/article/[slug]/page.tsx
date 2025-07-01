@@ -49,7 +49,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       </CardHeader>
       <CardContent>
           <Image 
-              src={`https://placehold.co/800x400.png`}
+              src={article.image}
               alt={article.title}
               width={800}
               height={400}
