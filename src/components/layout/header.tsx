@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Apple, Laptop } from 'lucide-react';
+import { Apple, Laptop, Menu } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const AndroidIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -28,7 +29,8 @@ const Header = () => {
           <span className="text-xl font-bold font-headline text-primary">دنیای آموزش</span>
         </Link>
 
-        <div className="flex items-center gap-2">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-2">
             <Button variant="ghost" size="sm">
                 <AndroidIcon className="ml-2 h-4 w-4" />
                 دانلود اندروید
@@ -41,12 +43,48 @@ const Header = () => {
                 <Laptop className="ml-2 h-4 w-4" />
                 دانلود دسکتاپ
             </Button>
-
             <div className="h-6 w-px bg-border mx-2"></div>
-          
             <Button asChild>
                 <Link href="/login">ورود</Link>
             </Button>
+        </nav>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+            <Sheet>
+                <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                        <Menu className="h-6 w-6" />
+                        <span className="sr-only">باز کردن منو</span>
+                    </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                    <div className="flex flex-col gap-4 py-8 h-full">
+                        <Link href="/" className="flex items-center gap-2 mb-4">
+                            <span className="text-xl font-bold font-headline text-primary">دنیای آموزش</span>
+                        </Link>
+                        <nav className="flex flex-col gap-3">
+                            <Button variant="ghost" size="sm" className="justify-start">
+                                <AndroidIcon className="ml-2 h-4 w-4" />
+                                دانلود اندروید
+                            </Button>
+                            <Button variant="ghost" size="sm" className="justify-start">
+                                <Apple className="ml-2 h-4 w-4" />
+                                دانلود iOS
+                            </Button>
+                            <Button variant="ghost" size="sm" className="justify-start">
+                                <Laptop className="ml-2 h-4 w-4" />
+                                دانلود دسکتاپ
+                            </Button>
+                        </nav>
+                        <div className="border-t pt-4 mt-auto">
+                            <Button asChild className="w-full">
+                                <Link href="/login">ورود</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </SheetContent>
+            </Sheet>
         </div>
       </div>
     </header>
