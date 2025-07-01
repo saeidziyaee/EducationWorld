@@ -21,7 +21,7 @@ const TopicSidebar = ({ topics, onTopicClick }: TopicSidebarProps) => {
             <Button
               key={topic.id}
               variant="ghost"
-              className="justify-start text-base"
+              className="h-auto justify-start whitespace-normal text-base text-right"
               onClick={() => onTopicClick(topic)}
             >
               {topic.name}

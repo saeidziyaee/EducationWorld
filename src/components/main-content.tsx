@@ -30,9 +30,9 @@ const MainContent = ({ tabs, activeTabId, onCloseTab, onTabClick }: MainContentP
 
   return (
     <Tabs value={activeTabId ?? ''} onValueChange={onTabClick} className="w-full">
-      <TabsList className="grid w-full grid-cols-auto">
+      <TabsList className="h-auto w-full flex-wrap justify-start">
         {tabs.map((tab) => (
-          <TabsTrigger key={tab.id} value={tab.id} className="relative pr-8">
+          <TabsTrigger key={tab.id} value={tab.id} className="relative h-auto whitespace-normal pr-8">
             <span>{tab.title}</span>
             <Button
               variant="ghost"
