@@ -11,7 +11,8 @@ interface ArticlePageProps {
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const article = articles.find((a) => a.slug === params.slug);
+  const slug = decodeURIComponent(params.slug);
+  const article = articles.find((a) => a.slug === slug);
 
   if (!article) {
     return {
@@ -34,7 +35,8 @@ export async function generateStaticParams() {
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const article = articles.find((a) => a.slug === params.slug);
+  const slug = decodeURIComponent(params.slug);
+  const article = articles.find((a) => a.slug === slug);
 
   if (!article) {
     notFound();
