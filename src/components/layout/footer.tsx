@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-muted/40 border-t">
       <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground">
-          © {currentYear} دنیای من. تمامی حقوق محفوظ است.
+          © {currentYear} دنیای آموزش. تمامی حقوق محفوظ است.
         </p>
         <nav className="flex items-center gap-x-6 text-sm text-muted-foreground">
           <Link href="/privacy" className="hover:text-primary transition-colors">
