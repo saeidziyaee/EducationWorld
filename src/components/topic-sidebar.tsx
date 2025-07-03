@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { FileText } from 'lucide-react';
 
 interface TopicSidebarProps {
   articles: Article[];
@@ -33,6 +34,7 @@ const TopicSidebar = ({ articles }: TopicSidebarProps) => {
               asChild
             >
               <Link href={`/article/${article.slug}`}>
+                <FileText className="h-5 w-5 flex-shrink-0" />
                 {article.title}
               </Link>
             </Button>

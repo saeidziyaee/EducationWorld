@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { Article } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { FileText } from 'lucide-react';
 
 export function ArticleGrid({ articles }: { articles: Article[] }) {
     return (
@@ -26,7 +27,10 @@ export function ArticleGrid({ articles }: { articles: Article[] }) {
                         <div className="flex flex-col flex-grow p-6">
                             <CardHeader className="p-0 pb-4">
                                 <CardTitle className="text-xl font-headline leading-tight">
-                                    <Link href={`/article/${article.slug}`} className="hover:text-primary transition-colors">{article.title}</Link>
+                                    <Link href={`/article/${article.slug}`} className="hover:text-primary transition-colors inline-flex items-center gap-2">
+                                        <FileText className="h-5 w-5 flex-shrink-0" />
+                                        {article.title}
+                                    </Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="p-0 flex-grow">
