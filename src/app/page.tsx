@@ -1,5 +1,6 @@
 import TopicSidebar from '@/components/topic-sidebar';
 import { articles as allArticles } from '@/lib/data';
+import { HeroSlider } from '@/components/hero-slider';
 
 export default function Home() {
   return (
@@ -8,9 +9,7 @@ export default function Home() {
         <TopicSidebar articles={allArticles} />
       </aside>
       <section className="lg:col-span-3">
-        <div className="flex items-center justify-center h-full min-h-[400px] border-2 border-dashed rounded-lg">
-          <p className="text-muted-foreground">برای مشاهده مقاله، یک موضوع را از نوار کناری انتخاب کنید.</p>
-        </div>
+        <HeroSlider />
       </section>
     </div>
   );
