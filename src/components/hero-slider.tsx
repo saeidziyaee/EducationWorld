@@ -34,26 +34,7 @@ const AndroidIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
   
 
-const sliderItems = [
-    {
-        title: "یادگیری را به دنیای خود بیاورید",
-        description: "مقالات آموزشی ما را در هر زمان و هر مکان مطالعه کنید.",
-        image: "https://placehold.co/1200x600.png",
-        imageHint: "learning mobile app",
-    },
-    {
-        title: "دانش خود را عمیق‌تر کنید",
-        description: "با تکنیک‌های مطالعه و تمرکز، بازدهی خود را چند برابر کنید.",
-        image: "https://placehold.co/1200x600.png",
-        imageHint: "deep knowledge brain",
-    },
-    {
-        title: "برای موفقیت آماده شوید",
-        description: "با استراتژی‌های کاهش استرس و تست‌زنی، در امتحانات بدرخشید.",
-        image: "https://placehold.co/1200x600.png",
-        imageHint: "success exam celebration",
-    },
-];
+import { bannerItems } from "@/lib/data";
 
 export function HeroSlider() {
     const plugin = React.useRef(
@@ -69,7 +50,7 @@ export function HeroSlider() {
             dir="ltr"
         >
             <CarouselContent>
-                {sliderItems.map((item, index) => (
+                {bannerItems.map((item, index) => (
                     <CarouselItem key={index}>
                         <div className="relative h-[400px] md:h-[500px] w-full">
                             <Image
