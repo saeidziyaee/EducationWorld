@@ -1,4 +1,4 @@
-# **App Name**: دنیای من
+# **App Name**: یادناب
 
 ## Core Features:
 

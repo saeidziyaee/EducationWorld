@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: 'دنیای آموزش',
-  description: 'یک اپلیکیشن مدرن وب برای نمایش مقالات و اخبار روز.',
+  title: "یادناب",
+  description: "یک اپلیکیشن مدرن وب برای نمایش مقالات و اخبار روز.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,11 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap"
           rel="stylesheet"
